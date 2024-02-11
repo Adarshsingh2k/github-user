@@ -12,7 +12,7 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-import { BookOutlined } from "@mui/icons-material";
+import { BookOutlined, BusinessOutlined } from "@mui/icons-material";
 
 const UserDetails = () => {
   const { username } = useParams();
@@ -48,6 +48,7 @@ const UserDetails = () => {
             <Typography variant="h4" component="div">
               {userDetails.name || "No Name"}
             </Typography>
+
             <Typography
               variant="subtitle1"
               color="text.secondary"
@@ -55,6 +56,16 @@ const UserDetails = () => {
             >
               @{userDetails.login}
             </Typography>
+            {userDetails.company && (
+              <Box display="flex" alignItems="center" mt={2}>
+                <BusinessOutlined />
+
+                <Typography variant="body2" component="div" ml={2}>
+                  {userDetails.company || "No Name"}
+                </Typography>
+              </Box>
+            )}
+
             <Stack direction="row" spacing={1} mt={2}>
               <Chip
                 color="success"
